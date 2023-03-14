@@ -4,92 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <script>
-        function getComputerChoice(){
-            function getRandomInt(max){
-                return Math.floor(Math.random() * max);
-            }
+    <h1>Let's Play!</h1>
 
-            let choice = getRandomInt(3);
-            if (choice == 0) {
-                return "Rock";
-            } else if (choice == 1){
-                return "Scissors"
-            }else {
-                return "Paper"
-            }
-        }
+    <div class="buttons">
+        <button id="rock"><img src="rock.png" alt=""></button>
+        <button id="paper"><img src="paper.png" alt=""></button>
+        <button id="scissors"><img src="scissors.png" alt="">></button>
+    </div>
 
-        let computerChoice = (getComputerChoice());
+    <div class="scoreboard">
+        <h2>Score</h2>
 
-        //let playersChoice = prompt("Your move. Rock, Paper, or Scissors?");
-
-        //playersChoice = playersChoice.toLowerCase();
-
-        function singleGame(playersChoice, computerChoice){
-            switch (playersChoice) {
-                case "rock":
-                    if (computerChoice === "Rock"){
-                        return "Tie"
-                    } else if (computerChoice === "Scissors"){
-                        return "Win"
-                    } else {
-                        return "Loss"
-                    }
-                case "scissors":
-                    if (computerChoice === "Scissors"){
-                        return "Tie"
-                    } else if (computerChoice === "Paper"){
-                        return "Win"
-                    } else {
-                        return "Loss"
-                    }
-                case "paper":
-                    if (computerChoice === "Paper"){
-                        return "Tie"
-                    } else if (computerChoice ===  "Rock"){
-                        return "Win"
-                    } else {
-                        return "Loss"
-                    }
-                default:
-                    return "Something went wrong . . . "
-            }
-            
-        }
-            //console.log(singleGame(playersChoice, computerChoice));
-
-            function game() {
-
-                let userScore = 0;
-                let computerScore = 0;
-
-                for (let i = 0; i < 5; i++){
-                    let playersGameChoice = prompt(`Enter choice for Round ${i+1}`);
-
-                    playersGameChoice = playersGameChoice.toLowerCase();
-                    let round = (singleGame(playersGameChoice, computerChoice));
-
-                    if (round === "Win" ){
-                        userScore++;
-                    }else if (round === "Loss")
-                        computerScore++;
-                }
-
-                if (userScore > computerScore){
-                    console.log("Winner Winner Winner Chicken Diner! Wow you won 5 rounds against the computer!")
-                }else if (userScore < computerScore){
-                    console.log("Ummm sorry you lost to the computer in 5 rounds. Sorry bud.")
-                } else {
-                    console.log("Tough battle, play again to break this boring tie.")
-                }
-            }
-
-            console.log(game());
-    </script>
+        <div class="scores">
+            <h2>Wins</h2>
+                <p class="wins"> 0 </p>
+            <h2>Losses</h2>
+                <p class="losses"> 0 </p>
+            <h2>Ties</h2>
+                <p class="ties">0</p>
+        </div>
+    </div>
     
 </body>
 </html>
